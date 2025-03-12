@@ -61,16 +61,26 @@
       </label>
     </div>
     <div class="form-group">
-      <button class="btn btn-primary">Lưu</button>
       <button
-        v-if="contactLocal._id"
-        type="button"
+        class="btn btn-primary"
+        @click="contactLocal._id ? updateContact() : addContact()"
+      >
+        Lưu
+      </button>
+      <button
         class="ml-2 btn btn-danger"
+        type="button"
+        v-if="contactLocal._id"
         @click="deleteContact"
       >
         Xóa
       </button>
-      <button type="button" class="ml-2 btn btn-danger" @click="Cancel">
+      <button
+        class="ml-2 btn btn-danger"
+        type="button"
+        v-if="contactLocal._id"
+        @click="Cancel"
+      >
         Thoát
       </button>
     </div>
@@ -85,7 +95,7 @@ export default {
     Field,
     ErrorMessage,
   },
-  emits: ["submit:contact", "delete:contact"],
+  emits: ["submit:contact", "delete:contact", "create:contact"],
   props: {
     contact: { type: Object, required: true },
   },
@@ -121,6 +131,9 @@ export default {
     },
     deleteContact() {
       this.$emit("delete:contact", this.contactLocal.id);
+    },
+    addContact() {
+      this.$emit("create:contact", this.contactLocal);
     },
     Cancel() {
       const reply = window.confirm(

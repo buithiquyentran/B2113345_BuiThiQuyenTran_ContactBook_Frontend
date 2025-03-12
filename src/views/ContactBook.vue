@@ -115,7 +115,7 @@ export default {
           this.refreshList();
         } catch (error) {
           console.log(error); 
-        }
+        } 
       }
     },
     goToAddContact() {
