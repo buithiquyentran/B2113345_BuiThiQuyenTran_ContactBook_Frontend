@@ -7,10 +7,10 @@ export default {
 </script>
 <template>
   <div>
-    <div class="p-1">
+    <div class="p-1"> 
       <strong>Tên:</strong>
       {{ contact.name }}
-    </div>
+    </div> 
     <div class="p-1">
       <strong>E-mail:</strong>
       {{ contact.email }}

@@ -10,4 +10,4 @@ export default (baseURL) => {
     baseURL,
     ...commonConfig,
   });
-};
+};  
